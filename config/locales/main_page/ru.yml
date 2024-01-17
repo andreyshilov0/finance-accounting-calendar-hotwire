@@ -1,0 +1,7 @@
+ru:
+  main_page:
+    logout: "Выйти"
+    incomes: "Доходы"
+    payments: "Платежи"
+    charts: "Графики"
+    settings: "Настройки"

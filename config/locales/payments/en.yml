@@ -1,0 +1,7 @@
+en:
+  payments:
+    category_label: "Category payments"
+    amount_label: "Amount payments"
+    submit_button: "Add payment"
+    previous_income: "Previous payment"
+    select_category: "Select a category"

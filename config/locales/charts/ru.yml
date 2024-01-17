@@ -1,0 +1,13 @@
+ru:
+  charts:
+    no_category: "Категория не определена"
+    report_month: "Отчет за месяц"
+    button_show: "Показать"
+    payments_chart: "График расходов"
+    incomes_chart: "График доходов"
+    monthly_summary: "Сумма за месяц"
+    total_income: "Всего доходов"
+    total_payment: "Сумма расходов"
+    result_title: "Результат"
+    result_profit: "Выгода"
+    result_loss: "Потеряно"

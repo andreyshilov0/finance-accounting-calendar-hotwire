@@ -1,0 +1,7 @@
+ru:
+  incomes:
+    category_label: "Категории доходов"
+    amount_label: "Сумма дохода"
+    submit_button: "Добавить доход"
+    previous_income: "Предыдущие доходы"
+    select_category: "Выберите категорию"
