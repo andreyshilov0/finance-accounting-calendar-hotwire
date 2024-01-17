@@ -1,0 +1,13 @@
+en:
+  charts:
+    no_category: "Category not found"
+    report_month: "Report month:"
+    button_show: "Show"
+    payments_chart: "Payments chart"
+    incomes_chart: "Incoming chart"
+    monthly_summary: "Monthly Summary"
+    total_income: "Total Income:"
+    total_payment: "Total Payment"
+    result_title: "Result"
+    result_profit: "Profit"
+    result_loss: "Loss"

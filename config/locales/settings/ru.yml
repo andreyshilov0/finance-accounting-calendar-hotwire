@@ -1,0 +1,9 @@
+ru:
+  settings:
+    add_button: "Добавить"
+    incomes_category: "Категории доходов"
+    payments_category: "Категории платежей"
+    button_add_category: "Создать"
+    button_edit_category: "Обновить"
+    name_category: "Название категории"
+    button_return: "Отмена"

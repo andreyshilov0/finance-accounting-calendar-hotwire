@@ -1,0 +1,7 @@
+en:
+  incomes:
+    category_label: "Category incomes"
+    amount_label: "Amount incomes"
+    submit_button: "Add income"
+    previous_income: "Previous income"
+    select_category: "Select a category"

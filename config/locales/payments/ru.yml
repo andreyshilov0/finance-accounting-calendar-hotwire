@@ -1,0 +1,7 @@
+ru:
+  payments:
+    category_label: "Категории платежей"
+    amount_label: "Сумма платежей"
+    submit_button: "Добавить платеж"
+    previous_income: "Предыдущие платежи"
+    select_category: "Выберите категорию"

@@ -1,8 +1,29 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  scope '(:locale)', locale: /en|ru/ do
+    devise_for :users, controllers: {
+      sessions: 'users/sessions'
+    }
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+    devise_scope :user do
+      authenticated :user do
+        root 'incomes#index', as: :authenticated_root
+      end
+      unauthenticated do
+        root 'devise/sessions#new', as: :unauthenticated_root
+      end
+    end
+
+    authenticated :user do
+      resources :income_categories, except: [:show]
+      resources :payment_categories, except: [:show]
+      resources :incomes, controller: 'incomes', except: %i[index show]
+      resources :payments, controller: 'payments', except: %i[index show]
+      resources :charts, controller: 'charts', except: %i[index show]
+      get 'settings', to: 'settings#index'
+      get 'incomes', to: 'incomes#index'
+      get 'payments', to: 'payments#index'
+      get 'charts', to: 'charts#index'
+    end
+  end
+  root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
 end
