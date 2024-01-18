@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <%= turbo_stream_from 'settings_container' %>
+          <%= form_with model: @income_category, local: true, id: 'new_income_category_form' do |f| %>
+            <% if @income_category.errors.any? %>
+              <div class="alert alert-danger">
+                <% @income_category.errors.full_messages.each do |message| %>
+                  <p><%= message %></p>
+                <% end %>
+              </div>
+            <% end %>
+            <div class="form-group">
+              <%= f.label :name, t('settings.name_category') %>
+              <%= f.text_field :name, class: 'form-control' %>
+              <% if @income_category.errors[:name].any? %>
+                <div class="invalid-feedback">
+                  <%= @income_category.errors[:name].join(', ') %>
+                </div>
+              <% end %>
+            </div>
+            <div class="form-group">
+              <%= f.submit @income_category.new_record? ? t('settings.button_add_category') : t('settings.button_edit_category'), class: 'btn btn-primary' %>
+              <%= link_to t('settings.button_return'), settings_path, class: 'btn btn-secondary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

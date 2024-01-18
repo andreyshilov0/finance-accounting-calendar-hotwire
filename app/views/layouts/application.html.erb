@@ -1,16 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FinanceAccountingCalendarHotwired</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Finance Accounting Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <% if user_signed_in? %>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="">FAC</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <%= link_to "EN", { locale: 'en' }, class: "nav-link #{'active border border-primary' if I18n.locale == :en}" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "RU", { locale: 'ru' }, class: "nav-link #{'active border border-primary' if I18n.locale == :ru}" %>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <%= button_to t('main_page.logout'), destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container d-flex align-items-center justify-content-center">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <% [['incomes', t('main_page.incomes')], ['payments', t('main_page.payments')], ['charts', t('main_page.charts')], ['settings', t('main_page.settings')]].each do |path, name| %>
+                <li class="nav-item">
+                  <%= link_to name, "#{path}", class: "nav-link #{'active' if controller.controller_name == path}" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
